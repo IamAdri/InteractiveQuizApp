@@ -2,15 +2,29 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Quiz } from "../../../components/renderQuestions";
 
-export default function QuestionsByQuiz() {
+export default function QuestionsByQuiz({ questions }) {
   const router = useRouter();
   const quizId = router.query.quizId;
   return (
     <>
-      {quizId === "1" ? Quiz("art") : Quiz("science")}
+      {quizId === "1"
+        ? Quiz("art", { questions })
+        : Quiz("science", { questions })}
       {BackToPreviousPages()}
     </>
   );
+}
+
+
+export async function getServerSideProps() {
+  const response = await fetch(`http://localhost:4000/quiz`);
+  const data = await response.json();
+
+  return {
+    props: {
+      questions: data,
+    },
+  };
 }
 
 function BackToPreviousPages() {

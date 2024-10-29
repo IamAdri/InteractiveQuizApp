@@ -1,4 +1,4 @@
-export default function QuizResult ({total, correct}) {
+export default function QuizResult (total, correct) {
     return(
             <div>
               <h1>Rezultat</h1>
