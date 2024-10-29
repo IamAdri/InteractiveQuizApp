@@ -1,9 +1,8 @@
 import Head from "next/head";
-
+import Image from "next/image";
 import localFont from "next/font/local";
 //import styles from "@/styles/Home.module.css";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import Link from 'next/link';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,19 +16,6 @@ const geistMono = localFont({
 });
 
 export default function Home() {
-  const [questions, setQuestions] = useState(null);
-
-  useEffect(() => {
-    if (questions === null) {
-      fetch("http://localhost:3000/api/questions")
-        .then((response) => response.json())
-        .then((data) => setQuestions(data));
-    } else {
-      localStorage.setItem("questions", JSON.stringify(questions));
-      setQuestions(questions);
-    }
-  }, []);
-
   return (
     <>
       <Head>
@@ -40,12 +26,11 @@ export default function Home() {
       </Head>
       <div>
         <h1>Bine ati venit!</h1>
-        <br></br>
-        <br></br>
-        <h2>
-          <Link href="/categories">Categorii</Link>
-        </h2>
-      </div>
+        <br></br><br></br>
+        <h2><Link href='/categories'>Categorii</Link></h2>
+        
+        </div>
+      
     </>
   );
 }
