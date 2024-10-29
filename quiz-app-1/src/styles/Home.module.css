@@ -156,7 +156,6 @@ a.secondary {
     align-items: center;
     justify-content: center;
   }
-  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -164,7 +163,3 @@ a.secondary {
     filter: invert();
   }
 }
-
-.button-answer{
-  background-color: aqua;
-  }
