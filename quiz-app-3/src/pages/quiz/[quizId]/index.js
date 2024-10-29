@@ -7,7 +7,6 @@ export default function QuizQuestions() {
 
   return (
     <>
-      {console.log(quizId)}
       {quizId === "1" ? quiz1() : quiz2()}
     </>
   );
